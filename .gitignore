@@ -1,0 +1,7 @@
+sendgrid.env
+DS_Store
+.idea/
+*.orig
+node_modules/  
+bower_components/  
+config.js 

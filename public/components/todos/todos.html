@@ -1,0 +1,12 @@
+<div id="todo">
+    <input ng-model="mytodo.title">
+    <input type="date" ng-model="mytodo.date">
+    <button class="btn btn-primary" ng-click="addTodo(mytodo)">Add</button>
+</div>
+<div class="row">
+    <div class="col-md-4" ng-repeat="todo in todos">
+        <h3>{{todo.title}}</h3>
+
+        <p>{{todo.date}}</p>
+    </div>
+</div>

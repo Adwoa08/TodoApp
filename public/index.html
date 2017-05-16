@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TodoApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
+    <!--    calendar Links-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0/angular-material.css">
+
+
+
+    <!--my styling-->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <navbar></navbar>
+
+    <div class="container">
+        <div ng-view></div>
+    </div>
+    
+    
+    <calendar-form></calendar-form>
+    
+    
+    <!-- Third-party -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="http://code.angularjs.org/1.5.6/angular-route.js"></script>
+
+    <!-- Main App -->
+    <script src="app.js"></script>
+    <script src="components/todos/todos.js"></script>
+
+    <!-- Auth -->
+    <script src="components/auth/auth.js"></script>
+    <script src="components/auth/services/tokenService.js"></script>
+    <script src="components/auth/services/userService.js"></script>
+    <script src="components/auth/login/login.js"></script>
+    <script src="components/auth/signup/signup.js"></script>
+    <script src="components/auth/services/authInterceptor.js"></script>
+    <script src="components/auth/logout/logout.js"></script>
+    <script src="components/navbar/navbar.js"></script>
+    <script src="components/profile/profile.js"></script>
+    <script src="components/auth/forgot/forgot.js"></script>
+
+    <script src="components/auth/reset/reset.js"></script>
+
+
+    <!--Calender scripts-->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-aria.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.6/angular-sanitize.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-messages.min.js"></script>
+    <script src="components/calendar/angular-material-calendar.min.js"></script>
+
+    <!--Bootstrap scripts for the modal template-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+
+    <!--my calendar scripts-->
+    <script src="components/calendar/calendar.js"></script>
+    <script src="components/calendar/calendarModalService.js"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+This app simply helps in planning a todo.

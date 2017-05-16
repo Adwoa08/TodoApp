@@ -1,0 +1,15 @@
+<script type="text/ng-template" id="calendar.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Calendar Form <button class="btn btn-warning close" ng-click="cancel()">x</button></h3>
+    </div>
+    <form name="calendar.calendarForm" novalidate ng-submit="showCalendarForm()">
+        <div class="form-group">
+            <label for="title">Title of todo</label>
+            <input placeholder="Title of todo" ng-model="mytodo.title" class="form-control">
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button class="btn btn-succss" ng-click="saveChanges(mytodo)">save</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
