@@ -1,6 +1,6 @@
 var app = angular.module("TodoApp");
 
-app.controller("ProfileController", ["$scope", "UserService", function ($scope, UserService) {  
+app.controller("ProfileController", ["$scope", "UserService", "httpService", function ($scope, UserService, httpService) {  
     $scope.userService = UserService;
     $scope.changePassword = function (passwords) {
         if (passwords.newPassword === passwords.newPasswordRepeat) {
@@ -13,7 +13,11 @@ app.controller("ProfileController", ["$scope", "UserService", function ($scope, 
     }
 
 
-
+    
+    
+     httpService.getCurrentUser().then(function(user){
+        $scope.user = user;
+    })
 
 }]);
 

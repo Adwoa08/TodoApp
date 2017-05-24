@@ -1,12 +1,16 @@
-<div id="todo">
-    <input ng-model="mytodo.title">
-    <input type="date" ng-model="mytodo.date">
-    <button class="btn btn-primary" ng-click="addTodo(mytodo)">Add</button>
-</div>
-<div class="row">
-    <div class="col-md-4" ng-repeat="todo in todos">
-        <h3>{{todo.title}}</h3>
-
-        <p>{{todo.date}}</p>
+<div class="container">
+    <div id="todo">
+        <form novalidate name="myForm">
+            <input ng-model="mytodo.title" required>
+            <input type="date" ng-model="mytodo.date" required>
+            <button ng-disabled="myForm.$invalid" class="btn btn-primary" ng-click="addTodo(mytodo)">Add</button>
+        </form>
+    </div>
+    <div class="row">
+        <div ng-repeat="todo in todos">
+            <ul>
+                <li>{{todo.date}} <span>: {{todo.title}}</span><button ng-click="deleteTodo(todo._id, $index)">x</button></li>
+            </ul>
+        </div>
     </div>
 </div>

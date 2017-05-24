@@ -1,53 +1,34 @@
 var app = angular.module("TodoApp");
 
-app.service("TodoService", ["$http", function ($http) {
-    
-    
-    this.getTodos = function () {
-        return $http.get("/api/todo").then(function (response) {
-            for(var i = 0; i < response.data.length; i++){
-                response.data[i].date = new Date(response.data[i].date);
-            }
-            return response.data;
-        }, function (response) {
-            alert("Error " + response.status + ": " + response.statusText);
-        });
-    };
-
-    this.saveTodo = function (todo) {
-        return $http.post("/api/todo", todo).then(function (response) {
-            return response.data;
-        }, function (response) {
-            alert("Error " + response.status + ": " + response.statusText);
-        });
-    };
-}]);
-
-
-app.controller("TodoController", ["$scope", "$http", "TodoService", function ($scope, $http, TodoService) {
-    $scope.todo = {};
-    $scope.todos = [];
+app.controller("TodoController", ["$scope", "$http", "httpService", function ($scope, $http, httpService) {
 
     // define and immediately invoke this function when the 
     // page loads to get the list of todos from the server
     (function getTodos() {
-        TodoService.getTodos().then(function (todos) {
+        httpService.getTodos().then(function (todos) {
             $scope.todos = todos;
         });
     })();
-    
-    
-    $scope.addTodo = function(todo){
-        TodoService.saveTodo(todo).then(function(response){
+
+
+    $scope.addTodo = function (todo) {
+        httpService.saveTodo(todo).then(function (response) {
             $scope.todos.push(response);
         })
-        
+
         $scope.mytodo = {};
+    }
+
+
+    $scope.deleteTodo = function (id, index) {
+        httpService.deleteTodo(id).then(function (response) {
+            $scope.todos.splice(index, 1);
+        })
     }
     
     
     
     
-    //calendar modal service functions
     
+   
 }]);

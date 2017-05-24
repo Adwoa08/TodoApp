@@ -3,15 +3,20 @@ var Schema = mongoose.Schema;
 var bcrypt = require("bcrypt");
 
 var userSchema = new Schema({
-    name: String,
+    firstName: String,
+    lastName: String,
     username: {
         type: String,
         required: true,
         unique: true,
         lowercase: true
     },
+    image: {
+        type: String,
+        default: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
+    },
     email: {
-      type: String,
+        type: String,
         required: true,
         unique: true,
         lowercase: true,
@@ -29,7 +34,7 @@ var userSchema = new Schema({
     resetPasswordExpires: Date
 });
 
-userSchema.pre("save", function (next) {  
+userSchema.pre("save", function (next) {
     var user = this;
     if (!user.isModified("password")) return next();
 
@@ -42,7 +47,7 @@ userSchema.pre("save", function (next) {
 });
 
 
-userSchema.methods.checkPassword = function(passwordAttempt, callback) {  
+userSchema.methods.checkPassword = function (passwordAttempt, callback) {
     bcrypt.compare(passwordAttempt, this.password, function (err, isMatch) {
         if (err) return callback(err);
         callback(null, isMatch);
@@ -51,7 +56,7 @@ userSchema.methods.checkPassword = function(passwordAttempt, callback) {
 
 
 
-userSchema.methods.withoutPassword = function () {  
+userSchema.methods.withoutPassword = function () {
     var user = this.toObject();
     delete user.password;
     return user;
