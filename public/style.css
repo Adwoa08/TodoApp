@@ -5,3 +5,13 @@
 .navbar-brand {
     margin-top: 10px;
 }
+
+.todoImg {
+    max-height: 200px;
+}
+
+.finished {
+    text-decoration: line-through;
+    background-color: red;
+    
+}

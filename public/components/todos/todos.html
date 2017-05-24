@@ -1,4 +1,5 @@
 <div class="container">
+    <!--
     <div id="todo">
         <form novalidate name="myForm">
             <input ng-model="mytodo.title" required>
@@ -13,4 +14,57 @@
             </ul>
         </div>
     </div>
+-->
+
+
+
+    <input name="new-list" placeholder="Item to do" ng-model="mytodo.title">
+    <input name="new-list" placeholder="img URL" ng-model="mytodo.imgUrl">
+    <input name="new-list" placeholder="Description" ng-model="mytodo.description">
+    <input name="new-list" placeholder="Price in dollars" ng-model="mytodo.price">
+    <input type="date" ng-model="mytodo.date" required>
+
+    <button ng-click="addTodo(mytodo)">Add Item To List!</button>
+
+
+
+
+    <div class="row" ng-repeat="todo in todos track by $index">
+        <div ng-hide="editing">
+            <div class="panel">
+                <input type="checkbox" ng-model="terry">
+                <h3 ng-class="{'finished': something.completed}">{{todo.title}}</h3>
+                <input type="checkbox" ng-click="edit(todo)" ng-model="somthing.completed">
+            </div>
+            <div class="panel"> {{todo.description}} </div>
+            <div class="panel"> {{todo.price}} </div>
+            <div class="panel"> <img ng-src="{{todo.imgUrl}}" class="todoImg" /></div>
+            <button ng-click="deleteTodo(todo._id, $index)">Remove Item</button>
+        </div>
+
+
+        <div ng-show="editing">
+            <h3>edit your item</h3>
+            <div>
+                <input type="text" placeholder="{{todo.title}}" ng-model="todo.title">
+            </div>
+            <div>
+                <input type="url" placeholder="img URL" ng-model="todo.imgUrl">
+            </div>
+            <div>
+                <input type="text" placeholder="Description" ng-model="todo.description">
+            </div>
+            <div>
+                <input type="number" placeholder="Price in Dollars" ng-model="todo.price">
+            </div>
+
+            <button ng-click="editTodo(todo, todo._id); editing = !editing">Save</button>
+        </div>
+        <button ng-click="editing = !editing">Edit</button>
+
+    </div>
+
+
+
+
 </div>

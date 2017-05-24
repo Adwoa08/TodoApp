@@ -19,8 +19,22 @@ app.controller("TodoController", ["$scope", "$http", "httpService", function ($s
         $scope.mytodo = {};
     }
 
+    
+    
+       
+   
+ 
+    $scope.editTodo = function(item, id){
+        httpService.editItem(item, id).then(function(response){
+          $scope.todos = response;
+        })
+    }
+    
 
+    
     $scope.deleteTodo = function (id, index) {
+        console.log(id);
+        console.log(index);
         httpService.deleteTodo(id).then(function (response) {
             $scope.todos.splice(index, 1);
         })

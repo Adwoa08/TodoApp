@@ -30,8 +30,13 @@ app.service("httpService", ["$http", function ($http) {
     }
 
 
+    this.editItem = function(item, id){
+        return $http.put("/api/todo/" + id, item).then(function(response){
+            return response.data;
+        })
+    }
 
-
+    
 
 
 

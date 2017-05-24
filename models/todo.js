@@ -4,13 +4,16 @@ var Schema = mongoose.Schema;
 var todoSchema = new Schema({
     title: {
         type: String,
-        required: true
+//        required: true
     },
     date: {
         type: Date,
-        required: true
+//        required: true
     },
-    
+      imgUrl: {
+        type: String,
+//        required: true
+    },
     completed: {
         type: Boolean,
         default: false
